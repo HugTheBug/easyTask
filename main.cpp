@@ -18,10 +18,6 @@ int main() {
 
     sort(services.begin(), services.end(), cmpEfficiency);
 
-    for (const Service &obj : services) {
-        cout << obj << endl;
-    }
-
     Time lastArrival, lastDeparture;
     for (const Service &obj : services) {
         if (obj.getArrival() > lastArrival && obj.getDeparture() > lastDeparture && !obj.isLong()) {
@@ -35,6 +31,7 @@ int main() {
         }
     }
     writeServices("output.txt", posh, grotty);
+
     return 0;
 }
 

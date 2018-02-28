@@ -34,8 +34,14 @@ public:
 
     void setArrival(const Time &arrival);
 
+    /**
+     * @return duration of service in minutes
+     */
     unsigned int minutesLength() const;
 
+    /**
+     * @return whether service is longer than 1 hour
+     */
     bool isLong() const;
 
     bool operator==(const Service &rhs) const;
