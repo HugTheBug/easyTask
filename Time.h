@@ -7,22 +7,17 @@
 using std::string;
 
 /**
- * Represents time. Contains hours and minutes.
+ * Represents time. Contains day, hours and minutes.
  */
 class Time {
+    unsigned int day;
     unsigned int hour;
     unsigned int minute;
 public:
-    Time() : hour{0}, minute{0} {}
+    Time() : hour{0}, minute{0}, day{0} {}
 
-    /**
-     * Constructs object from "hh:mm" string
-     * @param str "hh:mm" string
-     */
-    explicit Time(string str);
-
-    Time(unsigned int hour, unsigned int minute)
-            : hour{hour}, minute{minute} {}
+    Time(unsigned int day, unsigned int hour, unsigned int minute)
+            : hour{hour}, minute{minute}, day{day} {}
 
     unsigned int getHour() const {
         return hour;
@@ -40,15 +35,23 @@ public:
         Time::minute = minute;
     }
 
+    unsigned int getDay() const {
+        return day;
+    }
+
+    void setDay(unsigned int day) {
+        Time::day = day;
+    }
+
     /**
      * Computes time passed since 00:00 in minutes
      * @return time since 00:00 in minutes
      */
     unsigned int minutes() const;
 
-    bool operator==(const Time &obj) const;
+    bool operator==(const Time &rhs) const;
 
-    bool operator!=(const Time &obj) const;
+    bool operator!=(const Time &rhs) const;
 
     bool operator<(const Time &rhs) const;
 
